@@ -24,11 +24,11 @@ The core execution environment is partitioned into three decoupled, deterministi
                                       │
               ┌───────────────────────┴───────────────────────┐
               ▼                                               ▼
- ┌────────────────────────┐                       ┌────────────────────────┐
- │   core-crypto (MPC)    │                       │    aa-engine (4337)    │
+ ┌────────────────────────┐                      ┌────────────────────────┐
+ │   core-crypto (MPC)    │                      │    aa-engine (4337)    │
  │ 🧠 Shamir Key Shards   │                      │ ⛽ Bundler Gas Sim     │
  │ 🔐 Homomorphic Masking │                      │ 📜 Paymaster Invariants│
- └────────────────────────┘                       └────────────────────────┘
+ └────────────────────────┘                      └────────────────────────┘
 
  ### 1. Multi-Party Computation (MPC-GG18) Engine
 Instead of deriving a single private key $sk$ which introduces a single point of failure, the key generation phase triggers a Distributed Key Generation (DKG) protocol over the elliptic curve $\text{secp256k1}$. The master secret is split into $N$ polynomial shards where any threshold $T+1$ participants can reconstruct or sign via Lagrange Interpolation at $x=0$:
