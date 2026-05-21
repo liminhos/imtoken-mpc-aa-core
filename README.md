@@ -12,7 +12,7 @@ An enterprise-grade, high-performance cryptographic middleware designed to seaml
 
 The core execution environment is partitioned into three decoupled, deterministic sub-modules optimized for bare-metal deployment without standard library overhead (`#![no_std]`).
 
-```
+
                               ┌────────────────────────┐
                               │     imToken Wallet     │
                               └───────────┬────────────┘
@@ -32,7 +32,7 @@ The core execution environment is partitioned into three decoupled, deterministi
 
 
 
- ### 1. Multi-Party Computation (MPC-GG18) Engine
+### 1. Multi-Party Computation (MPC-GG18) Engine
 Instead of deriving a single private key $sk$ which introduces a single point of failure, the key generation phase triggers a Distributed Key Generation (DKG) protocol over the elliptic curve $\text{secp256k1}$. The master secret is split into $N$ polynomial shards where any threshold $T+1$ participants can reconstruct or sign via Lagrange Interpolation at $x=0$:
 
 $$f(x) = a_0 + a_1x + a_2x^2 + \dots + a_Tx^T \pmod p$$
